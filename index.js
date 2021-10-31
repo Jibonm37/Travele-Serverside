@@ -62,7 +62,7 @@ async function run () {
 
 
         //Delete Api
-        // app.delete('/services/:id', async(req,res) => {
+        // app.delete('/tours/:id', async(req,res) => {
         //     const id = req.params.id;
         //     const query  = { _id: ObjectId(id)};
         //     const result  = await servicesCollection.deleteOne(query);
@@ -70,14 +70,14 @@ async function run () {
         // })
 
         //POST API 
-        app.post('/services', async(req,res) => {
+        app.post('/tours', async(req,res) => {
             const service = req.body
-            console.log('Hitthe post api' , service);
+            console.log('Hit the post api' , service);
 
-            const result = await servicesCollection.insertOne(service);
-            console.log(result)
-            res.json(result);
-            console.log(result)
+            // const result = await servicesCollection.insertOne(service);
+            // console.log(result)
+            // res.json(result);
+            // console.log(result)
         })
 
 
