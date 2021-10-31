@@ -38,6 +38,16 @@ async function run () {
             
 
         })
+        ///Get First 6 Data
+
+
+        app.get('/tours', async(req,res) => {
+            const cursor = servicesCollection.find({});
+            const tours = await cursor.limit(6).toArray();
+            res.send(tours)
+        })
+
+
         //Get Single Service
         app.get('/tours/:id', async(req,res) => {
             const id = req.params.id;
@@ -48,14 +58,7 @@ async function run () {
         })
 
 
-        ///Get First 6 Data
-
-
-        app.get('/tours', async(req,res) => {
-            const cursor = servicesCollection.find({});
-            const tours = await cursor.limit(6).toArray();
-            res.send(tours)
-        })
+        
 
 
         //Delete Api
@@ -67,14 +70,15 @@ async function run () {
         // })
 
         //POST API 
-        // app.post('/services', async(req,res) => {
-        //     const service = req.body
-        //     console.log('Hitthe post api' , service);
+        app.post('/services', async(req,res) => {
+            const service = req.body
+            console.log('Hitthe post api' , service);
 
-        //     const result = await servicesCollection.insertOne(service);
-        //     console.log(result)
-        //     res.json(result);
-        // })
+            const result = await servicesCollection.insertOne(service);
+            console.log(result)
+            res.json(result);
+            console.log(result)
+        })
 
 
 
