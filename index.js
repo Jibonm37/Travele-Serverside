@@ -48,6 +48,16 @@ async function run () {
         })
 
 
+        ///Get First 6 Data
+
+
+        app.get('/tours', async(req,res) => {
+            const cursor = servicesCollection.find({});
+            const tours = await cursor.limit(6).toArray();
+            res.send(tours)
+        })
+
+
         //Delete Api
         // app.delete('/services/:id', async(req,res) => {
         //     const id = req.params.id;
