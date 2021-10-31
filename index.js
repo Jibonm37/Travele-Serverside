@@ -57,27 +57,15 @@ async function run () {
             res.json(tour);
         })
 
-
-        
-
-
-        //Delete Api
-        // app.delete('/tours/:id', async(req,res) => {
-        //     const id = req.params.id;
-        //     const query  = { _id: ObjectId(id)};
-        //     const result  = await servicesCollection.deleteOne(query);
-        //     res.json(result);
-        // })
-
         //POST API 
         app.post('/tours', async(req,res) => {
-            const service = req.body
-            console.log('Hit the post api' , service);
+            const tour= req.body
+            // console.log('Hit the post api' ,tour);
 
-            // const result = await servicesCollection.insertOne(service);
-            // console.log(result)
-            // res.json(result);
-            // console.log(result)
+            const result = await servicesCollection.insertOne(tour);
+           
+            res.json(result);
+            
         })
 
 
