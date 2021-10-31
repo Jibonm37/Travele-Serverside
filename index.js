@@ -27,7 +27,7 @@ async function run () {
         const servicesCollection = database.collection("trips");
         
 
-        console.log('conncet to db',port)
+        
        
        
         // Get Api
@@ -39,13 +39,13 @@ async function run () {
 
         })
         //Get Single Service
-        // app.get('/services/:id', async(req,res) => {
-        //     const id = req.params.id;
-        //     console.log('getting service by id', id);
-        //     const query = { _id: ObjectId(id)};
-        //     const service = await servicesCollection.findOne(query)
-        //     res.json(service);
-        // })
+        app.get('/tours/:id', async(req,res) => {
+            const id = req.params.id;
+            console.log('getting service by id', id);
+            const query = { _id: ObjectId(id)};
+            const tour = await servicesCollection.findOne(query)
+            res.json(tour);
+        })
 
 
         //Delete Api
